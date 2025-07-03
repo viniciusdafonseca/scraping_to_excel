@@ -1,4 +1,6 @@
 import asyncio
+import os
+
 from app.scraping import Querencia
 from app.utils.async_patchright import wrapper
 from dotenv import load_dotenv
@@ -7,7 +9,7 @@ load_dotenv()
 
 
 async def main():
-    querencia = Querencia("43.383.928/0001-05")
+    querencia = Querencia(os.getenv("PARAMETRO_PESQUISA"))
     await wrapper(querencia, querencia.scraping)
 
 
